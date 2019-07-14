@@ -1,0 +1,27 @@
+{
+  "packageDirectories": [
+    {
+        "path": "sfdx-source/other",
+        "default": true
+    },
+    {
+        "path": "sfdx-source/reference-implementation-common",
+        "default": false
+    },
+    {
+        "path": "sfdx-source/reference-implementation-marketing",
+        "default": false
+    },
+    {
+        "path": "sfdx-source/reference-implementation-sales",
+        "default": false
+    },
+    {
+        "path": "sfdx-source/reference-implementation-service",
+        "default": false
+    }
+  ],
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "46.0"
+}
