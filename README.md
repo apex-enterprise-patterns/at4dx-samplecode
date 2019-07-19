@@ -1,9 +1,24 @@
-# Salesforce App
+# AT4DX Sample Code
 
-## Dev, Build and Test
+The files in this project are various example implementations of the *Advanced Techniquies for Salesforce DX* (aka AT4DX) framework.
 
-## Resources
+**Dependencies:** Must deploy [AT4DX](https://github.com/imjohnmdaniel/at4dx) before deploying this code.
 
-## Description of Files and Directories
+For more information on the AT4DX framework and related concepts, please refer to the [AT4DX](https://github.com/imjohnmdaniel/at4dx) project.
 
-## Issues
+Project Folders
+---------------
+The "core" framework is found in [AT4DX](https://github.com/imjohnmdaniel/at4dx) project.  This includes the following:
+
+| Folder | Description |
+| ------ | ----------- |
+| **core** | Core library, contains  |
+
+The "samples" of how to use the framework can be found in this project.
+
+| Folder | Description |
+| ------ | ----------- |
+| **reference-implementation-common** | Sample application using the API and Components to inject Apex, VF and Lightning at runtime |
+| **reference-implementation-sales** | Sample package providing impls for various bindings above |
+| **reference-implementation-marketing** | Sample package providing impls for various bindings above |
+| **reference-implementation-service** | Sample basic trigger framework leveraging the API |
