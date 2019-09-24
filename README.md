@@ -3,6 +3,9 @@
 The files in this project are various example implementations of the *Advanced Techniquies for Salesforce DX* (aka AT4DX) framework.
 
 **Dependencies:** Must deploy [AT4DX](https://github.com/imjohnmdaniel/at4dx) before deploying this code.
+* For more information on how to setup the AT4DX Framework, please refer to the [Environment Setup WIKI page](https://github.com/ImJohnMDaniel/at4dx/wiki/Environment-Setup). 
+* To install the AT4DX Framework, excute the following command after the environment is setup.
+  * sfdx shane:github:forceapp:install -g ImJohnMDaniel -r at4dx -p sfdx-source/core -u at4dxsamplecode
 
 For more information on the AT4DX framework and related concepts, please refer to the [AT4DX](https://github.com/imjohnmdaniel/at4dx) project.
 
