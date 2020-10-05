@@ -77,11 +77,6 @@ private class AccountSloganRelatedTest
 
         queryParams.sloganNameSet = new Set<String>{ slogan };
 
-
-
-
-
-
         // when
         Test.startTest();
         

@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>EventBus__c</field>
-        <value xsi:type="xsd:string">Event__e</value>
+        <value xsi:type="xsd:string">AT4DXMessage__e</value>
     </values>
     <values>
         <field>EventCategory__c</field>

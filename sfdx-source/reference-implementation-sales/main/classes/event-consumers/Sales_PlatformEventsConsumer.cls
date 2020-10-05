@@ -32,7 +32,7 @@ public class Sales_PlatformEventsConsumer extends PlatformEventAbstractConsumer 
         Set<Id> idSet = new Set<Id>();
 
         for (SObject sobj : events) {
-            Event__e evt = (Event__e) sobj;
+            AT4DXMessage__e evt = (AT4DXMessage__e) sobj;
             idSet.addAll((Set<Id>) JSON.deserialize(evt.Payload__c, Set<Id>.class));
         }
 
