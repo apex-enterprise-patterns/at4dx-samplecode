@@ -5,6 +5,22 @@
         "default": true
     },
     {
+        "path": "sfdx-source/apex-mocks",
+        "default" : false
+    },
+    {
+        "path": "sfdx-source/apex-common",
+        "default" : false
+    },
+    {
+        "path": "sfdx-source/force-di",
+        "default" : false
+    },
+    {
+        "path": "sfdx-source/core",
+        "default" : false
+    },
+    {
         "path": "sfdx-source/reference-implementation-common",
         "default": false
     },
