@@ -86,4 +86,28 @@ private class AccountsServiceTest
         ((IContactsSelector) mocks.verify( mockContactsSelector )).selectById( new Set<Id>{ testContact.Id } );
         
     }
+
+    /**
+     * Isolate the service from the other mocks
+     */
+    @isTest
+    static void givenNewAccountsServiceWhenCreateWithNameThenNewAccountIsCreated()
+    {
+        fflib_ApexMocks mocks = new fflib_ApexMocks();
+        IAccountsService mockAccountsService = (IAccountsService) mocks.mock( IAccountsService.class );
+
+        mocks.startStubbing();
+            String testAccountName = 'red';
+            Id expectedId = fflib_IDGenerator.generate( Account.SObjectType);
+            mocks.when( mockAccountsService.createWithName(testAccountName) ).thenReturn(expectedId);
+        mocks.stopStubbing();
+
+        Application.Service.setMock(IAccountsService.class, mockAccountsService);
+
+        Test.startTest();
+            Id actualId = AccountsService.createWithName(testAccountName);
+        Test.stopTest();
+
+        ((IAccountsService) mocks.verify( mockAccountsService)).createWithName(testAccountName);
+    }
 }

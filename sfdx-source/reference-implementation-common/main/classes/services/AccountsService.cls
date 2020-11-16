@@ -31,9 +31,9 @@ public class AccountsService
         return (IAccountsService) Application.Service.newInstance( IAccountsService.class );
     }
 
-    public static void createWithName( String name )
+    public static Id createWithName( String name )
     {
         System.debug('Calling IAccountsService.createWithName(String) method');
-        service().createWithName( name );
+        return service().createWithName( name );
     }
 }

@@ -26,5 +26,5 @@
 
 public interface IAccountsService 
 {
-    void createWithName( String name );
+    Id createWithName( String name );
 }
