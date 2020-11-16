@@ -108,6 +108,8 @@ private class AccountsServiceTest
             Id actualId = AccountsService.createWithName(testAccountName);
         Test.stopTest();
 
+        System.assertEquals(expectedId, actualId, 'The account id should have been ' + expectedId + ' but was ' + actualId + '.');
+
         ((IAccountsService) mocks.verify( mockAccountsService)).createWithName(testAccountName);
     }
 }
