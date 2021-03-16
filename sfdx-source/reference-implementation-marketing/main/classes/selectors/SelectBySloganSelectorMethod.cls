@@ -1,3 +1,12 @@
+/**
+ * AT4DX Selector Method Injection class used to select accounts by the Account.Slogan__c custom field
+ * specific to reference-implementation-marketing section of code
+ * 
+ * @Usage
+ *       SelectBySloganSelectorMethod.Parameters queryParams = new SelectBySloganSelectorMethod.Parameters();
+ *       queryParams.sloganNameSet = new Set<String>{ 'fishy' };
+ *       List<Account> accounts = AccountsSelector.newInstance().selectInjection( SelectBySloganSelectorMethod.class, queryParams );
+ */
 public inherited sharing class SelectBySloganSelectorMethod
     extends AbstractSelectorMethodInjectable
     implements ISelectorMethodInjectable
