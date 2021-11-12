@@ -1,10 +1,10 @@
 {
-  "orgName": "Developer Company",
-  "edition": "Developer",
-  "features": [],
-  "settings": {
-    "orgPreferenceSettings": {
-      "s1DesktopEnabled": true
-    }
+    "orgName": "Developer Company",
+    "edition": "Developer",
+    "features": [],
+    "settings": {
+      "lightningExperienceSettings": {
+        "enableS1DesktopEnabled": true
+      }
   }
 }

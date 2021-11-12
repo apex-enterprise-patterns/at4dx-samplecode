@@ -1,9 +1,9 @@
 {
-  "orgName": "Acme Enterprise Company",
-  "edition": "Enterprise",
-  "settings": {
-    "orgPreferenceSettings": {
-      "s1DesktopEnabled": true
+    "orgName": "Acme Enterprise Company",
+    "edition": "Enterprise",
+    "settings": {
+      "lightningExperienceSettings": {
+        "enableS1DesktopEnabled": true
+      }
     }
-  }
 }
