@@ -31,12 +31,30 @@ public with sharing class AccountsServiceImpl
 
     }
 
-    public void createWithName( String name )
+    public void createWithName( String nameOfAccount )
     {
         System.debug('AccountsServiceImpl.createWithName(String) method was called');
 
-        List<Account> accountsFound = AccountsSelector.newInstance().selectByName( new Set<String>{ name } );
+        List<Account> accountsFound = AccountsSelector.newInstance().selectByName( new Set<String>{ nameOfAccount } );
 
-        System.debug( accountsFound.isEmpty() ? 'No Accounts found with name of \'' + name + '\'' : 'Found Account ID ' + accountsFound[0].Id );
+        if ( accountsFound.isEmpty() ) 
+        {
+            System.debug('No Accounts found with name of \'' + nameOfAccount + '\'.  Creating one now.');
+            IApplicationSObjectUnitOfWork uow = Application.UnitOfWork.newInstance();
+            uow.registerNew( new Account(name = nameOfAccount) );
+            uow.registerNew( new Account(name = nameOfAccount) );
+            uow.registerNew( new Account(name = nameOfAccount) );
+            List<Account> fourRecords = new List<Account>();
+            fourRecords.add( new Account(name = nameOfAccount) );
+            fourRecords.add( new Account(name = nameOfAccount) );
+            fourRecords.add( new Account(name = nameOfAccount) );
+            fourRecords.add( new Account(name = nameOfAccount) );
+            uow.registerNew( fourRecords );
+            uow.commitWork();
+        }
+        else 
+        {
+            System.debug('Found Account ID ' + accountsFound[0].Id );
+        }
     }
 }

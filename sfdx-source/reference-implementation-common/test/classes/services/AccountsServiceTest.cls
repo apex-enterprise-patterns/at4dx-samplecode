@@ -28,10 +28,9 @@
 private class AccountsServiceTest
 {
     @isTest 
-    static void givenNewAccountsServiceImplWhenCreateWithNameThenNewImplExecutes()
+    private static void givenNewAccountsServiceImplWhenCreateWithNameThenNewImplExecutes()
     {
         fflib_ApexMocks mocks = new fflib_ApexMocks();
-        //IAccountsService mockAccountsService = (IAccountsService) mocks.mock( IAccountsService.class );
         IAccountsSelector mockAccountsSelector = (IAccountsSelector) mocks.mock( IAccountsSelector.class );
         IContactsSelector mockContactsSelector = (IContactsSelector) mocks.mock( IContactsSelector.class );
 
@@ -84,6 +83,53 @@ private class AccountsServiceTest
         // Then
         ((IAccountsSelector) mocks.verify( mockAccountsSelector )).selectByName( new Set<String>{ testAccountName } ); // should have been called by the AccountsService.createWithName(testAccountName); method call
         ((IContactsSelector) mocks.verify( mockContactsSelector )).selectById( new Set<Id>{ testContact.Id } );
+    }
+
+    @isTest 
+    private static void givenNewAccountsServiceImplWhenCreateWithNameAndNoAccountFoundThenNewAccountCreated()
+    {
+        fflib_ApexMocks mocks = new fflib_ApexMocks();
+        IAccountsSelector mockAccountsSelector = (IAccountsSelector) mocks.mock( IAccountsSelector.class );
+        IApplicationSObjectUnitOfWork mockUOW = (IApplicationSObjectUnitOfWork) mocks.mock( IApplicationSObjectUnitOfWork.class );
+
+        // given
+        mocks.startStubbing();
+
+        String testAccountName = 'red';
+
+        Account testAcct = new Account();
+        testAcct.Id = fflib_IDGenerator.generate( Account.SObjectType );
+        testAcct.Name = testAccountName;
+
+        mocks.when( mockAccountsSelector.sObjectType() ).thenReturn( Account.SObjectType );
+        // Have the AccountsSelector return the empty list so that the UOW can be explored
+        mocks.when( mockAccountsSelector.selectByName( new Set<String>{ testAccountName } ) ).thenReturn(new List<Account>()); 
+
+        // mocks.when( mockUOW.commitWork() ).then( );
+
+        mocks.stopStubbing();
+
+        Application.Selector.setMock(mockAccountsSelector);
+        Application.UnitOfWork.setMock(mockUOW);
         
+        // When
+        Test.startTest();
+
+        AccountsService.createWithName(testAccountName);
+
+        Test.stopTest();
+
+        // Then
+        ((IApplicationSObjectUnitOfWork)mocks.verify(mockUOW, 1)).commitWork();
+
+        ((IApplicationSObjectUnitOfWork)mocks.verify(mockUOW, 3)).registerNew( new Account(name = testAccountName) );
+
+        List<Account> fourRecords = new List<Account>();
+        fourRecords.add( new Account(name = testAccountName) );
+        fourRecords.add( new Account(name = testAccountName) );
+        fourRecords.add( new Account(name = testAccountName) );
+        fourRecords.add( new Account(name = testAccountName) );
+
+        ((IApplicationSObjectUnitOfWork)mocks.verify(mockUOW, 1)).registerNew( fourRecords );
     }
 }
