@@ -59,43 +59,46 @@ private class AccountSloganRelatedTest
     static void givenNewAccountWhenCreatedWithFishNameThenSelectorMethodInjection()
     {
         // given
+        fflib_ApexMocks mocks = new fflib_ApexMocks();
+
         String slogan = 'The Big Blue Fish is a fishy business';
 
+        // Setup the test record to be returned by the mock selector
         Account bluefishAccount = new Account();
-
         bluefishAccount.Id = fflib_IDGenerator.generate( Account.SObjectType );
         bluefishAccount.name = 'bluefish';
         bluefishAccount.slogan__c = slogan;
 
-        fflib_ApexMocks mocks = new fflib_ApexMocks();
+        List<Account> testRecords = new List<Account>();
+        testRecords.add(bluefishAccount);
 
+        // Setup the mocks needed for the test
         IAccountsSelector mockAccountsSelector = (IAccountsSelector) mocks.mock( IAccountsSelector.class );
 
-        mocks.startStubbing();
-
+        // Setup the injection parameter class
         SelectBySloganSelectorMethod.Parameters queryParams = new SelectBySloganSelectorMethod.Parameters();
-
         queryParams.sloganNameSet = new Set<String>{ slogan };
 
+        // Stub the mocks
+        mocks.startStubbing();
+
+        fflib_MethodReturnValue mockAccountsSelectorMethodReturnValue = mocks.when(mockAccountsSelector.selectInjection(SelectBySloganSelectorMethod.class, queryParams));
+        mockAccountsSelectorMethodReturnValue.thenReturn(testRecords);
+        mocks.when(mockAccountsSelector.sObjectType()).thenReturn(Account.SObjectType);
+
+        mocks.stopStubbing();
+
+        Application.Selector.setMock(mockAccountsSelector);
+        
         // when
         Test.startTest();
         
-        system.debug( AccountsSelector.newInstance().selectInjection( SelectBySloganSelectorMethod.class, queryParams) );
+        List<Account> accountsQueried = AccountsSelector.newInstance().selectInjection( SelectBySloganSelectorMethod.class, queryParams);
 
         Test.stopTest();
 
         // then
-        
-        // list<Account> accountRecordsQueried = AccountsSelector.newInstance().selectById( new Set<id>{ bluefishAccount.Id } );
-
-        // System.assert( ! accountRecordsQueried.isEmpty() );
-        // System.assert( accountRecordsQueried.size() == 1 );
-
-        // Account accountRecordQueried = accountRecordsQueried[0];
-
-        // System.assert( String.isNotBlank( accountRecordQueried.Slogan__c ) );
+        System.debug('accountsQueried size: ' + accountsQueried.size());
+        ((IAccountsSelector)mocks.verify(mockAccountsSelector)).selectInjection( SelectBySloganSelectorMethod.class, queryParams);
     }
-
-
-
 }
