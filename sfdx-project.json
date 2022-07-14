@@ -19,9 +19,14 @@
     {
         "path": "sfdx-source/reference-implementation-service",
         "default": false
+    },
+    {
+        "path": "sfdx-source/untracked",
+        "default": false
     }
   ],
   "namespace": "",
+  "pushPackageDirectoriesSequentially": true,
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "53.0"
+  "sourceApiVersion": "55.0"
 }
