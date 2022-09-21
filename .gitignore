@@ -7,7 +7,7 @@ temp/
 **/dep-dir.txt
 *.prefs
 build.properties
-/sfdx-source/core/main/default
+/sfdx-source/other/main/default
 
 # MavensMate IDE related
 *mm.log

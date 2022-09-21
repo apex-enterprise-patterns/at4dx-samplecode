@@ -24,15 +24,15 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 **/
 
-public class Sales_PlatformEventsConsumer extends PlatformEventAbstractConsumer {
-    public override void runInProcess() {
-        Set<Id> accountIdSet = new Set<Id>();
+public class Sales_AccountsService 
+{
+    // private static IAccountsService service()
+    // {
+    //     return (IAccountsService) Application.Service.newInstance( IAccountsService.class );
+    // }
 
-        for (SObject sobj : events) {
-            AT4DXMessage__e evt = (AT4DXMessage__e) sobj;
-            accountIdSet.addAll((Set<Id>) JSON.deserialize(evt.Payload__c, Set<Id>.class));
-        }
-
-        Sales_AccountsService.proocessAccountChanges(accountIdSet);
+    public static void proocessAccountChanges( Set<Id> accountIdSet )
+    {
+        
     }
 }
