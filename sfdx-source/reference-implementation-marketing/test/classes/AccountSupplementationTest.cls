@@ -33,6 +33,6 @@ class AccountSupplementationTest
         Account acct = new Account();
         TestDataSupplementer.supplement(new List<Account> {acct});
 
-        System.assertEquals('Hello world!', acct.Slogan__c);
+        System.Assert.areEqual('Hello world!', acct.Slogan__c);
     }
 }

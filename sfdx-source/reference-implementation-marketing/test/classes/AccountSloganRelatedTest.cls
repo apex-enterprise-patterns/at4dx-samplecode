@@ -46,12 +46,12 @@ private class AccountSloganRelatedTest
         
         list<Account> accountRecordsQueried = AccountsSelector.newInstance().selectById( new Set<id>{ bluefishAccount.Id } );
 
-        System.assert( ! accountRecordsQueried.isEmpty() );
-        System.assert( accountRecordsQueried.size() == 1 );
+        System.Assert.isFalse( accountRecordsQueried.isEmpty() );
+        System.Assert.isTrue( accountRecordsQueried.size() == 1 );
 
         Account accountRecordQueried = accountRecordsQueried[0];
 
-        System.assert( String.isNotBlank( accountRecordQueried.Slogan__c ) );
+        System.Assert.isTrue( String.isNotBlank( accountRecordQueried.Slogan__c ) );
         
     }
 

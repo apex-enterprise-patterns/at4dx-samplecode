@@ -71,12 +71,12 @@ private class AccountsServiceTest
         AccountsService.createWithName(testAccountName);
 
         // Call the ContactsSelector PRIOR TO SETTING THE MOCK. Expected result is that the mock testContact record will not be found in the database.
-        System.assert( ContactsSelector.newInstance().selectById( new Set<Id>{ testContact.Id } ).isEmpty() );
+        System.Assert.isTrue( ContactsSelector.newInstance().selectById( new Set<Id>{ testContact.Id } ).isEmpty() );
 
         Application.Selector.setMock(mockContactsSelector);
 
         // Call the ContactsSelector AFTER TO SETTING THE MOCK.  Expected results is that the mock testContact record will be returned by the selector.
-        System.assert( ! ContactsSelector.newInstance().selectById( new Set<Id>{ testContact.Id } ).isEmpty() );
+        System.Assert.isFalse( ContactsSelector.newInstance().selectById( new Set<Id>{ testContact.Id } ).isEmpty() );
 
         Test.stopTest();
 
