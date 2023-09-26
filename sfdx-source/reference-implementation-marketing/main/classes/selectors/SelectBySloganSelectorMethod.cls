@@ -24,5 +24,17 @@ public inherited sharing class SelectBySloganSelectorMethod
         implements ISelectorMethodParameterable
     {
         public Set<String> sloganNameSet;
+
+        public Boolean equals(Object obj){
+            if(obj instanceOf SelectBySloganSelectorMethod.Parameters){
+                SelectBySloganSelectorMethod.Parameters params = (SelectBySloganSelectorMethod.Parameters)obj;
+                return sloganNameSet.equals(params.sloganNameSet);
+            }
+            return false;
+        }
+
+        public Integer hashCode(){
+            return sloganNameSet.hashCode();
+        }
     }
 }
