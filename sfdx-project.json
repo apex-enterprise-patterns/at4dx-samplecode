@@ -1,28 +1,28 @@
 {
   "packageDirectories": [
     {
-        "path": "sfdx-source/other",
-        "default": true
+      "path": "sfdx-source/other",
+      "default": true
     },
     {
-        "path": "sfdx-source/reference-implementation-common",
-        "default": false
+      "path": "sfdx-source/reference-implementation-common",
+      "default": false
     },
     {
-        "path": "sfdx-source/reference-implementation-marketing",
-        "default": false
+      "path": "sfdx-source/reference-implementation-marketing",
+      "default": false
     },
     {
-        "path": "sfdx-source/reference-implementation-sales",
-        "default": false
+      "path": "sfdx-source/reference-implementation-sales",
+      "default": false
     },
     {
-        "path": "sfdx-source/reference-implementation-service",
-        "default": false
+      "path": "sfdx-source/reference-implementation-service",
+      "default": false
     }
   ],
   "namespace": "",
   "pushPackageDirectoriesSequentially": true,
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "58.0"
+  "sourceApiVersion": "59.0"
 }
