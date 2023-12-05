@@ -1,6 +1,6 @@
 # AT4DX Sample Code
 
-The files in this project are various example implementations of the *Advanced Techniquies for Salesforce DX* (aka AT4DX) framework.
+The files in this project are various example implementations of the *Advanced Techniques for Salesforce DX* (aka AT4DX) framework.
 
 **Dependencies:** Must deploy [AT4DX](https://github.com/apex-enterprise-patterns/at4dx) before deploying this code.
 * For more information on how to setup the AT4DX Framework, please refer to the [Environment Setup WIKI page](https://github.com/apex-enterprise-patterns/at4dx/wiki/Environment-Setup). 
