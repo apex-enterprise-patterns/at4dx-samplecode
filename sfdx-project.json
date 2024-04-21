@@ -22,7 +22,7 @@
     },
     {
       "path": "sfdx-source/untracked",
-      "default": false
+      "default": true
     }
   ],
   "namespace": "",
