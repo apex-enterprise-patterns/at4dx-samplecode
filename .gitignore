@@ -7,16 +7,6 @@ temp/
 **/dep-dir.txt
 *.prefs
 build.properties
-/sfdx-source/other/main/default
-
-# MavensMate IDE related
-*mm.log
-*.sublime-build
-*.sublime-project
-*.sublime-settings
-*.sublime-workspace
-.sublime-project
-.tm_properties
 
 # Eclipse IDE Related
 .project
@@ -31,9 +21,8 @@ Referenced Packages/
 # SFDX Related
 .sfdx/
 .sf/
-sfdx-source/common-base/main/default/
-sfdx-source/untracked/
 !sfdx-source/untracked/README.md
+sfdx-source/untracked/
 .execanon
 
 # NPM Related

@@ -2,7 +2,7 @@
   "packageDirectories": [
     {
       "path": "sfdx-source/other",
-      "default": true
+      "default": false
     },
     {
       "path": "sfdx-source/reference-implementation-common",
@@ -18,6 +18,10 @@
     },
     {
       "path": "sfdx-source/reference-implementation-service",
+      "default": false
+    },
+    {
+      "path": "sfdx-source/untracked",
       "default": false
     }
   ],
