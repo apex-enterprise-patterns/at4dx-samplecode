@@ -22,7 +22,7 @@ Referenced Packages/
 .sfdx/
 .sf/
 !sfdx-source/untracked/README.md
-sfdx-source/untracked/
+# sfdx-source/untracked/
 .execanon
 
 # NPM Related
